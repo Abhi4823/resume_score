@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+        <h1 class="text-2xl font-bold mb-4">Resume Analyzer & Job Match Predictor</h1>
+        <form method="POST" enctype="multipart/form-data" class="space-y-4">
+            <div>
+                <label class="block">Upload Resume:</label>
+                <input type="file" name="resume" required class="border p-2 w-full">
+            </div>
+            <div>
+                <label class="block">Paste Job Description:</label>
+                <textarea name="job_desc" required class="border p-2 w-full h-40"></textarea>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Analyze</button>
+        </form>
+
+        {% if score is not none %}
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold">Match Score: {{ score }}%</h2>
+            <h3 class="mt-4 font-semibold">Missing Keywords:</h3>
+            <ul class="list-disc list-inside text-red-600">
+                {% for word in missing %}
+                    <li>{{ word }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

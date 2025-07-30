@@ -1,0 +1,1 @@
+“I built a Resume Analyzer using Python and Flask that uses NLP techniques like TF-IDF vectorization and cosine similarity to measure how well a resume matches a job description. It also extracts missing keywords that users can add to improve alignment. This helps automate the resume screening and makes it easier for applicants to tailor their resumes.”
